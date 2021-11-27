@@ -69,6 +69,15 @@ class AuthController extends Controller
         return $request->user();
     }
 
+    public function logout(Request $request)
+    {
+        Auth::user()->tokens()->delete();
+
+        return [
+            'message' => 'Anda Sudah Logout'
+        ];
+    }
+
     /**
      * Display the specified resource.
      *
